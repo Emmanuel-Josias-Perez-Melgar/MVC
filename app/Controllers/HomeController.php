@@ -2,19 +2,13 @@
 
 namespace App\Controllers;
 
-class HomeController
+class HomeController extends Controller
 {
     public function index()
     {
-        return $this->view('home2');
-    }
-
-    public function view($route){
-        if(file_exists("../resources/views/{$route}.php")){
-            return include "../resources/views/{$route}.php";
-        }else{
-            return "El archivo no existe";
-        }
-
+        return $this->view('home', [
+            'title' => 'Home',
+            'description' => 'Esta es la pagina home'
+        ]);
     }
 }
